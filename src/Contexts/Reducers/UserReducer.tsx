@@ -8,30 +8,30 @@ export enum UserOption {
 }
 
 export type UserType = {
-	isSignedIn: boolean;
-	userId: number | null;
-	username: string | null;
-	accessToken: string | null;
-	accessTokenExpirationDate: number | null;
-	refreshToken: string | null;
-	telegramId: string | null;
+	isSignedIn: boolean
+	userId: number | null
+	username: string | null
+	accessToken: string | null
+	accessTokenExpirationDate: number | null
+	refreshToken: string | null
+	telegramId: string | null
 }
 
 type UserPayload = {
   [UserOption.SetUser]: {
-		isSignedIn: boolean;
-		userId: number;
-		username: string;
-		accessToken: string;
-		accessTokenExpirationDate: number;
-		refreshToken: string;
-		telegramId: string;
+		isSignedIn: boolean
+		userId: number
+		username: string
+		accessToken: string
+		accessTokenExpirationDate: number
+		refreshToken: string
+		telegramId: string
   };
   [UserOption.RemoveUser]: { };
   [UserOption.UpdateTokens]: { 
-		accessToken: string;
-		accessTokenExpirationDate: number;
-		refreshToken: string;
+		accessToken: string
+		accessTokenExpirationDate: number
+		refreshToken: string
 	};
 }
 

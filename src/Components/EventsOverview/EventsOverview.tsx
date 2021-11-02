@@ -1,16 +1,17 @@
 import React from 'react'
 import { v4 as uuid } from 'uuid'
-import Card from '../../../../Components/Card/Card'
-import { useAuth } from '../../../../Hooks/useAuth'
-import { EventDescription } from '../../../../Utils/types/EventDescription'
-import Event from './Components/Event'
+
+import { useAuth } from '../../Hooks/useAuth'
+import { EventDescription } from '../../Utils/types/EventDescription'
+import Card from '../Card/Card'
+import Event from '../Event/Event'
 
 interface EventProps {
 	events: EventDescription[];
 	refetchThing: Function
 }
 
-export const Events: React.FC<EventProps> = ({ events, refetchThing }) => {
+export const EventsOverview: React.FC<EventProps> = ({ events, refetchThing }) => {
 	const { hasAuthenticatedTelegram, user } = useAuth()
 
 	console.log(hasAuthenticatedTelegram())
@@ -26,5 +27,3 @@ export const Events: React.FC<EventProps> = ({ events, refetchThing }) => {
 		</Card>
 	)
 }
-
-export default Events

@@ -2,15 +2,16 @@ import React from 'react'
 import Loader from 'react-loader-spinner'
 import { useQuery } from 'react-query'
 import { useParams } from 'react-router'
+import styled from 'styled-components'
+
 import { useAuth } from '../../Hooks/useAuth'
 import { useRequest } from '../../Hooks/useRequest'
 import { CacheName } from '../../Utils/enums/CacheName'
 import { HTTPMethod } from '../../Utils/enums/HTTPMethod'
 import { ThingDescription } from '../../Utils/types/ThingDescription'
-import Actions from './Components/Actions/Actions'
-import { Events } from './Components/Events/Events'
-import Properties from './Components/Properties/Properties'
-import styled from 'styled-components'
+import { ActionsOverview } from '../../Components/ActionsOverview/ActionsOverview'
+import { PropertiesOverview } from '../../Components/PropertiesOverview/PropertiesOverview'
+import { EventsOverview } from '../../Components/EventsOverview/EventsOverview'
 
 const StyledDiv = styled.div`
 	margin: 0 auto;
@@ -54,9 +55,9 @@ export const ThingPage: React.FC<ThingPageProps> = (props) => {
 				<h1>Thing Page - {thing.title}</h1>
 				<p>Description {thing.description}</p>
 				<p>Id {thing.id}</p>
-				<Properties properties={thing.properties}/>
-				<Actions actions={thing.actions}/>
-				<Events events={thing.events} refetchThing={refetchThing}/>
+				<PropertiesOverview properties={thing.properties}/>
+				<ActionsOverview actions={thing.actions}/>
+				<EventsOverview events={thing.events} refetchThing={refetchThing}/>
 			</StyledDiv>
 		)
 	}

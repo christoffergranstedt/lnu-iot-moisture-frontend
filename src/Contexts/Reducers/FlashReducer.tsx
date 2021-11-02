@@ -13,15 +13,15 @@ export enum FlashMessageType {
 }
 
 export type FlashType = {
-	messageType: FlashMessageType | null;
-	message: string | null;
-	showFlash: boolean;
+	messageType: FlashMessageType | null
+	message: string | null
+	showFlash: boolean
 }
 
 type FlashPayload = {
   [FlashOption.SetFlash]: {
-		messageType: FlashMessageType;
-		message: string;
+		messageType: FlashMessageType
+		message: string
   };
   [FlashOption.RemoveFlash]: { };
 }

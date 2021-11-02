@@ -1,10 +1,11 @@
 import React from 'react'
+
 import { AppContext } from '../Contexts/App/AppContext'
 import { FlashOption, FlashMessageType } from '../Contexts/Reducers/FlashReducer'
 
 interface FlashPayload {
-	messageType: FlashMessageType;
-	message: string;
+	messageType: FlashMessageType
+	message: string
 }
 
 export const useFlash = () => {

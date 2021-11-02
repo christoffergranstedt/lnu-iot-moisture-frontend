@@ -1,8 +1,11 @@
 import React from 'react'
-import { ActionDescription } from '../../../../../Utils/types/ActionDescription'
 import styled from 'styled-components'
-import { useRequest } from '../../../../../Hooks/useRequest'
-import { useAuth } from '../../../../../Hooks/useAuth'
+
+import { useAuth } from '../../Hooks/useAuth'
+import { useRequest } from '../../Hooks/useRequest'
+import { ActionDescription } from '../../Utils/types/ActionDescription'
+
+
 
 const StyledDiv = styled.div`
 	border: 1px solid rgb(200, 200, 200);

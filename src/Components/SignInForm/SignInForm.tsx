@@ -1,8 +1,9 @@
 import Loader from 'react-loader-spinner'
 import { useForm } from 'react-hook-form'
 import styled from 'styled-components'
-import Input from '../../../Components/Input/Input'
-import ButtonSubmit from '../../../Components/ButtonSubmit/ButtonSubmit'
+
+import Input from '../Input/Input'
+import ButtonSubmit from '../ButtonSubmit/ButtonSubmit'
 
 const StyledDiv = styled.div`
 	display: block;
@@ -11,8 +12,8 @@ const StyledDiv = styled.div`
 `
 
 interface SignInFormProps {
-	onFormSubmit: Function;
-	isLoading: boolean;
+	onFormSubmit: Function
+	isLoading: boolean
 }
 
 export type UserInput = {

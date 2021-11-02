@@ -1,7 +1,8 @@
 import React from 'react'
 import { useHistory } from 'react-router'
 import styled from 'styled-components'
-import { ThingDescription } from '../../../Utils/types/ThingDescription'
+
+import { ThingDescription } from '../../Utils/types/ThingDescription'
 
 const StyledDiv = styled.div`
 	box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1), 0 1px 10px 0 rgba(0, 0, 0, 0.15);

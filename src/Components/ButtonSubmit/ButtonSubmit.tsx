@@ -21,8 +21,8 @@ const StyledButton = styled.button`
 `
 
 interface ButtonSubmitProps {
-	children: React.ReactNode;
-	onClick?: React.MouseEventHandler<HTMLButtonElement>;
+	children: React.ReactNode
+	onClick?: React.MouseEventHandler<HTMLButtonElement>
 }
 
 const ButtonSubmit = ({ children, onClick }: ButtonSubmitProps) => {

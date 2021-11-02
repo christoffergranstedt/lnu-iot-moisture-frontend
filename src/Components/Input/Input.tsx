@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+
 const StyledDiv = styled.div`
 	display: block;
 	margin: 10px 0px;
@@ -25,13 +26,13 @@ const StyledDiv = styled.div`
 `
 
 interface InputProps {
-	name: string;
-	label: string;
-	type?: string;
-	errorText?: string;
-	disabled?: boolean;
-	error?: string;
-	register: any;
+	name: string
+	label: string
+	type?: string
+	errorText?: string
+	disabled?: boolean
+	error?: string
+	register: any
 }
 
 const Input = ({ name, label, type = 'text', errorText, disabled, error, register }: InputProps) => {

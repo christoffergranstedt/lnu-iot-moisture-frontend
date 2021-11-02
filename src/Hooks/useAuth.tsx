@@ -1,24 +1,25 @@
 import React from 'react'
+
 import { AppContext } from '../Contexts/App/AppContext'
 import { UserOption } from '../Contexts/Reducers/UserReducer'
 import { HTTPMethod } from '../Utils/enums/HTTPMethod'
 import { useRequest } from './useRequest'
 
 interface UserPayload {
-	isSignedIn: boolean;
-	userId: number;
-	username: string;
-	accessToken: string;
-	accessTokenExpirationDate: number;
-	refreshToken: string;
-	telegramId: string;
+	isSignedIn: boolean
+	userId: number
+	username: string
+	accessToken: string
+	accessTokenExpirationDate: number
+	refreshToken: string
+	telegramId: string
 }
 
 interface RefreshData {
 	user: {
-		accessToken: string;
-		accessTokenExpirationDate: number;
-		refreshToken: string;
+		accessToken: string
+		accessTokenExpirationDate: number
+		refreshToken: string
 	}
 }
 

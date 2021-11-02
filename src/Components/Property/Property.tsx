@@ -1,7 +1,8 @@
 import React from 'react'
-import { PropertyDescription } from '../../../../../Utils/types/PropertyDescription'
 import styled from 'styled-components'
-import Values from './Components/Values'
+
+import { PropertyDescription } from '../../Utils/types/PropertyDescription'
+import { ValueList } from '../ValueList/ValueList'
 
 const StyledDiv = styled.div`
 	border: 1px solid rgb(200, 200, 200);
@@ -50,7 +51,7 @@ export const Property: React.FC<PropertyProps> = ({ property }) => {
 		<StyledDiv>
 			<div className='title' onClick={toggleDisplay}><p>{property.title}</p></div>
 			<div className={className}>
-				<Values values={property.values}/>
+				<ValueList values={property.values}/>
 			</div>
 		</StyledDiv>
 	)

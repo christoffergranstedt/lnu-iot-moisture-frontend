@@ -1,6 +1,7 @@
-import React, { Dispatch } from "react";
-import { FlashActions, flashReducer, FlashType, initialFlashState } from "../Reducers/FlashReducer";
-import { userReducer, UserActions, UserType,	initialUserState } from "../Reducers/UserReducer";
+import React, { Dispatch } from "react"
+
+import { FlashActions, flashReducer, FlashType, initialFlashState } from "../Reducers/FlashReducer"
+import { userReducer, UserActions, UserType,	initialUserState } from "../Reducers/UserReducer"
 
 type InitialStateType = {
   user: UserType;
@@ -13,8 +14,8 @@ const initialState = {
 }
 
 export const AppContext = React.createContext<{
-  state: InitialStateType;
-  dispatch: Dispatch<UserActions | FlashActions>;
+  state: InitialStateType
+  dispatch: Dispatch<UserActions | FlashActions>
 }>({
   state: initialState,
   dispatch: () => null

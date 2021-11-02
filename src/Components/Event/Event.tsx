@@ -1,8 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-import { useAuth } from '../../../../../Hooks/useAuth'
-import { useEvent } from '../../../../../Hooks/useEvent'
-import { EventDescription } from '../../../../../Utils/types/EventDescription'
+
+import { useAuth } from '../../Hooks/useAuth'
+import { useEvent } from '../../Hooks/useEvent'
+import { EventDescription } from '../../Utils/types/EventDescription'
 
 
 const StyledDiv = styled.div`

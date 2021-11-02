@@ -1,11 +1,12 @@
 import React from 'react'
 import { Route, Redirect } from 'react-router-dom'
+
 import { useAuth } from '../../Hooks/useAuth'
 
 interface PrivateRouteProps {
-	component: React.ComponentType<any>;
-	path: string;
-	rest?: any;
+	component: React.ComponentType<any>
+	path: string
+	rest?: any
 	exact: boolean
 }
 

@@ -1,8 +1,9 @@
 import React from 'react'
 import { v4 as uuid } from 'uuid'
-import moment from 'moment'
-import { ValueDescription } from '../../../../../../Utils/types/ValueDescription'
 import styled from 'styled-components'
+import dayjs from 'dayjs'
+
+import { ValueDescription } from '../../Utils/types/ValueDescription'
 
 const StyledDiv = styled.div`
 	display: block;
@@ -32,7 +33,7 @@ interface ValuesProps {
 
 const incrementNumber = 10
 
-export const Values: React.FC<ValuesProps> = ({ values }) => {
+export const ValueList: React.FC<ValuesProps> = ({ values }) => {
 	const [valuesToDisplay, setValuesToDisplay] = React.useState<ValueDescription[]>([])
 	const [numberOfValuesToShow, setNumberOfValuesToShow] = React.useState<number>(10)
 
@@ -51,11 +52,9 @@ export const Values: React.FC<ValuesProps> = ({ values }) => {
 	return (
 		<StyledDiv>
 			{valuesToDisplay.map(value => {
-				return <p key={uuid()}>{`${parseInt(value.value)}%`} - {moment(value.date).format('YYYY-MM-DD HH:mm')}</p>
+				return <p key={uuid()}>{`${parseInt(value.value)}%`} - {dayjs(value.date).format('YYYY-MM-DD HH:mm')}</p>
 			})}
 			{ numberOfValuesToShow > values.length ? null : <button onClick={loadMore}>Load more</button> }
 		</StyledDiv>
 	)
 }
-
-export default Values
