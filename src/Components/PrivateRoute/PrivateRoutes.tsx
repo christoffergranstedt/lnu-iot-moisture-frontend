@@ -21,5 +21,3 @@ export const PrivateRoute: React.FC<PrivateRouteProps> = ({ component: Component
 		)} />
 	)
 }
-
-export default PrivateRoute

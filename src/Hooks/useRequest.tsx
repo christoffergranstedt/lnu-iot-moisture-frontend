@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 
-import { HTTPMethod } from '../Utils/enums/HTTPMethod'
+import { HTTPMethod } from '../Contants/HTTPMethod'
 
 interface UseRequestProps {
 	url: string

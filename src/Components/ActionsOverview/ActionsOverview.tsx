@@ -1,9 +1,9 @@
 import React from 'react'
 import { v4 as uuid } from 'uuid'
-import Card from '../Card/Card'
+import { Card } from '../Card/Card'
 
-import { ActionDescription } from '../../Utils/types/ActionDescription'
-import Action from '../Action/Action'
+import { Action } from '../Action/Action'
+import { ActionDescription } from '../../Types/ActionDescription'
 
 interface ActionProps {
 	actions: ActionDescription[]

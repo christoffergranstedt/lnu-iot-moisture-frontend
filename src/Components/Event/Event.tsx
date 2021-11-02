@@ -3,8 +3,7 @@ import styled from 'styled-components'
 
 import { useAuth } from '../../Hooks/useAuth'
 import { useEvent } from '../../Hooks/useEvent'
-import { EventDescription } from '../../Utils/types/EventDescription'
-
+import { EventDescription } from '../../Types/EventDescription'
 
 const StyledDiv = styled.div`
 	border: 1px solid rgb(200, 200, 200);
@@ -71,5 +70,3 @@ export const Event: React.FC<EventProps> = ({ event, refetchThing }) => {
 		</StyledDiv>
 	)
 }
-
-export default Event

@@ -4,8 +4,7 @@ import { v4 as uuid } from 'uuid'
 import styled from 'styled-components'
 
 const StyledNav = styled.nav`
-	display: inline-block
-
+	display: inline-block;
 `
 
 interface NavbarProps {
@@ -22,5 +21,3 @@ export const Navbar: React.FC<NavbarProps> = ({ links }) => {
 		</StyledNav>
 	)
 }
-
-export default Navbar

@@ -1,7 +1,7 @@
 import React from 'react'
 
-import { FormSubscription } from '../Utils/enums/FormSubscription'
-import { FormDescription } from '../Utils/types/FormDescription'
+import { FormSubscription } from '../Contants/FormSubscription'
+import { FormDescription } from '../Types/FormDescription'
 import { useAuth } from './useAuth'
 import { useRequest } from './useRequest'
 

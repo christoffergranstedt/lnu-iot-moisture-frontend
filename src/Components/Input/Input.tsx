@@ -35,7 +35,7 @@ interface InputProps {
 	register: any
 }
 
-const Input = ({ name, label, type = 'text', errorText, disabled, error, register }: InputProps) => {
+export const Input = ({ name, label, type = 'text', errorText, disabled, error, register }: InputProps) => {
   return (
     <StyledDiv>
       <label htmlFor={name}>
@@ -48,5 +48,3 @@ const Input = ({ name, label, type = 'text', errorText, disabled, error, registe
     </StyledDiv>
   )
 }
-
-export default Input

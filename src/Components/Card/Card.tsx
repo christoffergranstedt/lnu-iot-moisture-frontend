@@ -23,5 +23,3 @@ export const Card: React.FC<CardProps> = ({ children }) => {
     </StyledDiv>
 	)
 }
-
-export default Card

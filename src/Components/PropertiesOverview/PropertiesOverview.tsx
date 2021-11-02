@@ -1,9 +1,9 @@
 import React from 'react'
 import { v4 as uuid } from 'uuid'
 
-import { PropertyDescription } from '../../Utils/types/PropertyDescription'
-import Card from '../Card/Card'
-import Property from '../Property/Property'
+import { PropertyDescription } from '../../Types/PropertyDescription'
+import { Card } from '../Card/Card'
+import { Property } from '../Property/Property'
 
 interface PropertiesProps {
 	properties: PropertyDescription[]

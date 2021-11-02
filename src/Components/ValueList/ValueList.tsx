@@ -3,7 +3,7 @@ import { v4 as uuid } from 'uuid'
 import styled from 'styled-components'
 import dayjs from 'dayjs'
 
-import { ValueDescription } from '../../Utils/types/ValueDescription'
+import { ValueDescription } from '../../Types/ValueDescription'
 
 const StyledDiv = styled.div`
 	display: block;

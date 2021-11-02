@@ -1,9 +1,8 @@
 import Loader from 'react-loader-spinner'
 import { useForm } from 'react-hook-form'
 import styled from 'styled-components'
-
-import Input from '../Input/Input'
-import ButtonSubmit from '../ButtonSubmit/ButtonSubmit'
+import { Input } from '../Input/Input'
+import { ButtonSubmit } from '../ButtonSubmit/ButtonSubmit'
 
 const StyledDiv = styled.div`
 	display: block;
@@ -21,7 +20,7 @@ export type UserInput = {
 	password: string;
 }
 
-const SignInForm = ({onFormSubmit, isLoading}: SignInFormProps) => {
+export const SignInForm = ({onFormSubmit, isLoading}: SignInFormProps) => {
 	const { register, handleSubmit } = useForm<UserInput>()
 
   const onSubmit = (data: UserInput) => {
@@ -39,6 +38,3 @@ const SignInForm = ({onFormSubmit, isLoading}: SignInFormProps) => {
 	)
 
 }
-
-export default SignInForm
-

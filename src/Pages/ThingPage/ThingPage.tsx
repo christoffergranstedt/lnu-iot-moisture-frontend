@@ -6,12 +6,12 @@ import styled from 'styled-components'
 
 import { useAuth } from '../../Hooks/useAuth'
 import { useRequest } from '../../Hooks/useRequest'
-import { CacheName } from '../../Utils/enums/CacheName'
-import { HTTPMethod } from '../../Utils/enums/HTTPMethod'
-import { ThingDescription } from '../../Utils/types/ThingDescription'
+import { CacheName } from '../../Contants/CacheName'
 import { ActionsOverview } from '../../Components/ActionsOverview/ActionsOverview'
 import { PropertiesOverview } from '../../Components/PropertiesOverview/PropertiesOverview'
 import { EventsOverview } from '../../Components/EventsOverview/EventsOverview'
+import { ThingDescription } from '../../Types/ThingDescription'
+import { HTTPMethod } from '../../Contants/HTTPMethod'
 
 const StyledDiv = styled.div`
 	margin: 0 auto;
@@ -62,5 +62,3 @@ export const ThingPage: React.FC<ThingPageProps> = (props) => {
 		)
 	}
 }
-
-export default ThingPage

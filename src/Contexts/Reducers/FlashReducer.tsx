@@ -1,4 +1,4 @@
-import { ActionMap } from '../../Utils/types/ActionMap'
+import { ActionMap } from '../../Types/ActionMap'
 import { UserActions } from './UserReducer'
 
 export enum FlashOption {

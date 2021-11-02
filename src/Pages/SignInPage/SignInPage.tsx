@@ -1,13 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import SignInForm, { UserInput } from "../../Components/SignInForm/SignInForm"
+import { UserInput, SignInForm } from "../../Components/SignInForm/SignInForm"
 import { useHistory } from 'react-router'
 import { useRequest } from '../../Hooks/useRequest'
 import { useAuth } from '../../Hooks/useAuth'
-import { HTTPMethod } from '../../Utils/enums/HTTPMethod'
 import { useFlash } from '../../Hooks/useFlash'
 import { FlashMessageType } from '../../Contexts/Reducers/FlashReducer'
+import { HTTPMethod } from '../../Contants/HTTPMethod'
 
 const StyledDiv = styled.div`
 
@@ -58,5 +58,3 @@ export const SignInPage: React.FC<SignInpageProps> = (props) => {
 		</StyledDiv>
 	)
 }
-
-export default SignInPage

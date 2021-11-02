@@ -25,12 +25,10 @@ interface ButtonSubmitProps {
 	onClick?: React.MouseEventHandler<HTMLButtonElement>
 }
 
-const ButtonSubmit = ({ children, onClick }: ButtonSubmitProps) => {
+export const ButtonSubmit = ({ children, onClick }: ButtonSubmitProps) => {
   return (
     <StyledButton type='submit' onClick={onClick}>
       {children}
     </StyledButton>
   )
 }
-
-export default ButtonSubmit

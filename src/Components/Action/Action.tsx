@@ -3,9 +3,7 @@ import styled from 'styled-components'
 
 import { useAuth } from '../../Hooks/useAuth'
 import { useRequest } from '../../Hooks/useRequest'
-import { ActionDescription } from '../../Utils/types/ActionDescription'
-
-
+import { ActionDescription } from '../../Types/ActionDescription'
 
 const StyledDiv = styled.div`
 	border: 1px solid rgb(200, 200, 200);
@@ -67,5 +65,3 @@ export const Action: React.FC<ActionProps> = ({ action }) => {
 		</StyledDiv>
 	)
 }
-
-export default Action
