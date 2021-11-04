@@ -1,4 +1,4 @@
-import { FormDescription } from "./FormDescription";
+import { FormDescription } from "./FormDescription"
 
 export type EventDescription = {
 	title: string,

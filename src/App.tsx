@@ -1,11 +1,12 @@
 import {BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom'
-import Flash from './Components/Flash/Flash'
-import Header from './Components/Header/Header'
-import PrivateRoute from './Components/PrivateRoute/PrivateRoutes'
+
+import { Flash } from './Components/Flash/Flash'
+import { Header } from './Components/Header/Header'
+import { PrivateRoute } from './Components/PrivateRoute/PrivateRoutes'
 import { useAuth } from './Hooks/useAuth'
-import SignInPage from './Pages/SignInPage/SignInPage'
-import ThingPage from './Pages/ThingPage/ThingPage'
-import ThingsPage from './Pages/ThingsPage/ThingsPage'
+import { SignInPage } from './Pages/SignInPage/SignInPage'
+import { ThingPage } from './Pages/ThingPage/ThingPage'
+import { ThingsPage } from './Pages/ThingsPage/ThingsPage'
 
 function App() {
 	const { isSignedIn } = useAuth()

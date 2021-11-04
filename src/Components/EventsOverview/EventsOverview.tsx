@@ -2,9 +2,9 @@ import React from 'react'
 import { v4 as uuid } from 'uuid'
 
 import { useAuth } from '../../Hooks/useAuth'
-import { EventDescription } from '../../Utils/types/EventDescription'
-import Card from '../Card/Card'
-import Event from '../Event/Event'
+import { EventDescription } from '../../Types/EventDescription'
+import { Card } from '../Card/Card'
+import { Event } from '../Event/Event'
 
 interface EventProps {
 	events: EventDescription[];

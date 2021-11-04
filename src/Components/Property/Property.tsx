@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { PropertyDescription } from '../../Utils/types/PropertyDescription'
+import { PropertyDescription } from '../../Types/PropertyDescription'
 import { ValueList } from '../ValueList/ValueList'
 
 const StyledDiv = styled.div`
@@ -56,5 +56,3 @@ export const Property: React.FC<PropertyProps> = ({ property }) => {
 		</StyledDiv>
 	)
 }
-
-export default Property

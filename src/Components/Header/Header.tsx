@@ -1,11 +1,11 @@
 import React from 'react'
 import { useHistory } from 'react-router'
+import styled from 'styled-components'
 
 import { useAuth } from '../../Hooks/useAuth'
-import Navbar from '../Navbar/Navbar'
-import styled from 'styled-components'
 import { useFlash } from '../../Hooks/useFlash'
 import { FlashMessageType } from '../../Contexts/Reducers/FlashReducer'
+import { Navbar } from '../Navbar/Navbar'
 
 const StyledHeader = styled.header`
 	display: block;
@@ -74,5 +74,3 @@ export const Header: React.FC<HeaderProps> = (props) => {
 		</StyledHeader>
 	)
 }
-
-export default Header

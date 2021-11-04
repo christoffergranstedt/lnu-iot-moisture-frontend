@@ -6,10 +6,10 @@ import styled from 'styled-components'
 
 import { useAuth } from '../../Hooks/useAuth'
 import { useRequest } from '../../Hooks/useRequest'
-import { CacheName } from '../../Utils/enums/CacheName'
-import { HTTPMethod } from '../../Utils/enums/HTTPMethod'
-import { ThingDescription } from '../../Utils/types/ThingDescription'
-import Thing from '../../Components/Thing/Thing'
+import { CacheName } from '../../Contants/CacheName'
+import { ThingDescription } from '../../Types/ThingDescription'
+import { HTTPMethod } from '../../Contants/HTTPMethod'
+import { Thing } from '../../Components/Thing/Thing'
 
 const StyledDiv = styled.div`
 	display: block;
@@ -45,5 +45,3 @@ export const ThingsPage: React.FC<DashboardPageProps> = (props) => {
 		</StyledDiv>
 	)
 }
-
-export default ThingsPage

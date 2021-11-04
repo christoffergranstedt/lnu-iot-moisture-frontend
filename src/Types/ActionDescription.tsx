@@ -1,4 +1,4 @@
-import { HTTPMethod } from "../enums/HTTPMethod";
+import { HTTPMethod } from '../Contants/HTTPMethod'
 
 export type ActionDescription = {
 	title: string,

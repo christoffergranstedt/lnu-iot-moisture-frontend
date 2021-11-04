@@ -1,8 +1,8 @@
 import React from 'react'
 
+import { HTTPMethod } from '../Contants/HTTPMethod'
 import { AppContext } from '../Contexts/App/AppContext'
 import { UserOption } from '../Contexts/Reducers/UserReducer'
-import { HTTPMethod } from '../Utils/enums/HTTPMethod'
 import { useRequest } from './useRequest'
 
 interface UserPayload {

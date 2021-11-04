@@ -47,5 +47,3 @@ export const Flash: React.FC<FlashProps> = (props) => {
 	}
 
 }
-
-export default Flash

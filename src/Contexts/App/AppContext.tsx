@@ -1,7 +1,7 @@
-import React, { Dispatch } from "react"
+import React, { Dispatch } from 'react'
 
-import { FlashActions, flashReducer, FlashType, initialFlashState } from "../Reducers/FlashReducer"
-import { userReducer, UserActions, UserType,	initialUserState } from "../Reducers/UserReducer"
+import { FlashActions, flashReducer, FlashType, initialFlashState } from '../Reducers/FlashReducer'
+import { userReducer, UserActions, UserType,	initialUserState } from '../Reducers/UserReducer'
 
 type InitialStateType = {
   user: UserType;
