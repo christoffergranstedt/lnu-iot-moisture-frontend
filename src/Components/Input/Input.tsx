@@ -7,7 +7,7 @@ const StyledDiv = styled.div`
 	
 	label {
 		display: block;
-		width: 100%
+		width: 100%;
 	}
 
 	input {
@@ -20,7 +20,7 @@ const StyledDiv = styled.div`
 		font-size: 14px;
 
 		&:hover {
-			border: 1px solid rgb(5, 88, 105) 
+			border: 1px solid rgb(5, 88, 105);
 		}
 	}
 `
@@ -41,7 +41,7 @@ export const Input = ({ name, label, type = 'text', errorText, disabled, error, 
       <label htmlFor={name}>
         {label}
       </label>
-      <input type={type} name={name} disabled={disabled} ref={register}/>
+      <input type={type} disabled={disabled} {...register(name)}/>
       <section>
         {error && <p>{errorText}</p>}
       </section>

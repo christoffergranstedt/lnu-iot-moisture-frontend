@@ -1,7 +1,7 @@
-import { HTTPMethod } from "../enums/HTTPMethod";
-import { ActionDescription } from "./ActionDescription";
-import { EventDescription } from "./EventDescription";
-import { PropertyDescription } from "./PropertyDescription";
+import { HTTPMethod } from '../Contants/HTTPMethod'
+import { ActionDescription } from "./ActionDescription"
+import { EventDescription } from "./EventDescription"
+import { PropertyDescription } from "./PropertyDescription"
 
 export type ThingDescription = {
 	'@context': string,

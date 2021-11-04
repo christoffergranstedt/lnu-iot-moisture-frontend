@@ -2,8 +2,8 @@ import { ActionMap } from '../../Types/ActionMap'
 import { FlashActions } from './FlashReducer'
 
 export enum UserOption {
-  SetUser = "SET_USER",
-  RemoveUser = "REMOVE_USER",
+  SetUser = 'SET_USER',
+  RemoveUser = 'REMOVE_USER',
 	UpdateTokens = 'UPDATE_USER_TOKENS'
 }
 

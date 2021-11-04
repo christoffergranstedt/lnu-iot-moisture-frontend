@@ -1,5 +1,5 @@
-import { HTTPMethod } from "../enums/HTTPMethod";
-import { ValueDescription } from "./ValueDescription";
+import { HTTPMethod } from '../Contants/HTTPMethod'
+import { ValueDescription } from "./ValueDescription"
 
 export type PropertyDescription = {
 	title: string,

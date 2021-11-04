@@ -2,8 +2,8 @@ import { ActionMap } from '../../Types/ActionMap'
 import { UserActions } from './UserReducer'
 
 export enum FlashOption {
-  SetFlash = "SET_FLASH",
-  RemoveFlash = "REMOVE_FLASH",
+  SetFlash = 'SET_FLASH',
+  RemoveFlash = 'REMOVE_FLASH'
 }
 
 export enum FlashMessageType {
