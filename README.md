@@ -1,46 +1,13 @@
-# Getting Started with Create React App
+## IoT project - Moisture Level
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+An IoT project I did in a course at Linnaeus University. A thing, a moisture sensor, is sending the moisture level from a plant via an MQTT broker (CloudMQTT) to a backend server. A frontend is displaying the data that is fetched from the backend server. Notifications are sent from the backend to the user’s connected Telegram account via a Telegram bot. 
 
-## Available Scripts
+### Repositories in project
+Thing - [https://github.com/christoffergranstedt/lnu-iot-moisture-thing](https://github.com/christoffergranstedt/lnu-iot-moisture-thing)  
+Backend - [https://github.com/christoffergranstedt/lnu-iot-moisture-backend](https://github.com/christoffergranstedt/lnu-iot-moisture-backend)  
+Frontend - [https://github.com/christoffergranstedt/lnu-iot-moisture-frontend](https://github.com/christoffergranstedt/lnu-iot-moisture-frontend)  
 
-In the project directory, you can run:
+### Frontend repository
+This is the frontend repository. The frontend is written in TypeScript as an React application. The frontend follow the same patterns as the server of [Web of Things](https://www.w3.org/WoT/documentation/#web-of-things-in-a-nutshell), with things that are built by events, actions, and properties. The user can get notifications about low or high moisture warnings via a connected Telegram account that the user has chosen, and by enabling or disabling wanted notifications.
 
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+The main branch is automatically deployed to Vercel. Some of the request, such as signing in is sent to the backend server which sleeps after 30 minutes after the last request, so the initial request may take some time before a response.
