@@ -24,11 +24,11 @@ interface ThingsResponse {
 	things: ThingDescription[]
 }
 
-interface DashboardPageProps {
+interface ThingsPageProps {
 
 }
 
-export const ThingsPage: React.FC<DashboardPageProps> = (props) => {
+export const ThingsPage: React.FC<ThingsPageProps> = (props) => {
 	const { user } = useAuth()
 	const { sendRequest } = useRequest()
 

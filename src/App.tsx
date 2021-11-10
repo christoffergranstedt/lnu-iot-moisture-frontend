@@ -1,8 +1,7 @@
-import {BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom'
+import {BrowserRouter as Router, Navigate, Route, Routes } from 'react-router-dom'
 
 import { Flash } from './Components/Flash/Flash'
 import { Header } from './Components/Header/Header'
-import { PrivateRoute } from './Components/PrivateRoute/PrivateRoutes'
 import { useAuth } from './Hooks/useAuth'
 import { SignInPage } from './Pages/SignInPage/SignInPage'
 import { ThingPage } from './Pages/ThingPage/ThingPage'
@@ -14,18 +13,18 @@ function App() {
 	let routes
 	if (!isSignedIn()) {
 		routes = (
-			<Switch>
-				<Route path='/auth/signin' exact><SignInPage/></Route>
-				<Redirect to='/auth/signin'/>
-			</Switch>
+			<Routes>
+				<Route path='/' element={<SignInPage/>}></Route>
+				<Route path="*" element={<Navigate replace to="/" />} />
+			</Routes>
 		)
 	} else {
 		routes = (
-			<Switch>
-				<PrivateRoute path='/things' exact={true} component={ThingsPage}/>
-				<PrivateRoute path='/things/:thingId' exact={true} component={ThingPage}/>
-				<Redirect to={`/things`}/>
-			</Switch>
+			<Routes>
+				<Route path='/things' element={<ThingsPage/>}/>
+				<Route path='/things/:thingId' element={<ThingPage/>}/>
+				<Route path="*" element={<Navigate replace to="/things" />} />
+			</Routes>
 		)
 	}
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import { useHistory } from 'react-router'
+import { useNavigate  } from 'react-router'
 import styled from 'styled-components'
 
 import { useAuth } from '../../Hooks/useAuth'
@@ -48,7 +48,7 @@ export const Header: React.FC<HeaderProps> = (props) => {
 	const { user, isSignedIn, signout } = useAuth()
   const [links, setLinks] = React.useState<{ name: string; link: string }[]>([])
 	const { userId } = user
-	const history = useHistory()
+	const navigate = useNavigate()
 	const { setFlash }  = useFlash()
 
   React.useEffect(() => {
@@ -64,7 +64,7 @@ export const Header: React.FC<HeaderProps> = (props) => {
 	const signoutUser = () => {
 		signout()
 		setFlash({ messageType: FlashMessageType.Success, message: 'You have now signed out' })
-		history.push('/')
+		navigate({ pathname: '/' })
 	}
 	
 	return (
