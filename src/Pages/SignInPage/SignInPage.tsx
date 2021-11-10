@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 
 import { UserInput, SignInForm } from '../../Components/SignInForm/SignInForm'
-import { useHistory } from 'react-router'
 import { useRequest } from '../../Hooks/useRequest'
 import { useAuth } from '../../Hooks/useAuth'
 import { useFlash } from '../../Hooks/useFlash'
@@ -34,7 +33,6 @@ interface AuthenticateData {
 }
 
 export const SignInPage: React.FC<SignInpageProps> = (props) => {
-	const history = useHistory()
 	const [isLoading] = React.useState<boolean>(false)
 	const { sendRequest } = useRequest()
 	const { signin } = useAuth()
@@ -45,7 +43,6 @@ export const SignInPage: React.FC<SignInpageProps> = (props) => {
 			const data : AuthenticateData = await sendRequest({ url: '/api/accounts/authenticate', method: HTTPMethod.POST, body: userInput, token: null })
 			signin({ isSignedIn: true, ...data.user })
 			setFlash({ messageType: FlashMessageType.Success, message: 'You have succescully signed in, welcome! '})
-			history.push(`/dashboard/${data.user.userId}`)
 		} catch (error: any) {
 			setFlash({ messageType: FlashMessageType.Error, message: error.message })
 		}

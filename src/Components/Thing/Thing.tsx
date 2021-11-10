@@ -1,5 +1,5 @@
 import React from 'react'
-import { useHistory } from 'react-router'
+import { useNavigate } from 'react-router'
 import styled from 'styled-components'
 
 import { ThingDescription } from '../../Types/ThingDescription'
@@ -29,10 +29,10 @@ interface ThingProps {
 }
 
 export const Thing: React.FC<ThingProps> = ({ thing }) => {
-	const history = useHistory()
+	const navigate = useNavigate()
 
 	const openThingPage = () => {
-		history.push(`/things/${thing.id}`)
+		navigate({ pathname: `/things/${thing.id}` })
 	}
 
 	return (

@@ -29,12 +29,12 @@ interface ThingResponse {
 interface ThingPageProps {
 }
 
-interface Params {
-	thingId: string
+type Params = {
+	thingId?: string
 }
 
 export const ThingPage: React.FC<ThingPageProps> = (props) => {
-	const { thingId } = useParams<Params>()
+	const { thingId }: Params = useParams()
 	const { user } = useAuth()
 	const { sendRequest } = useRequest()
 	const { data, isLoading, isError, refetch: refetchThing } = useQuery<ThingResponse>([CacheName.Thing, thingId], async () => await sendRequest({ url: `/api/things/${thingId}`, method: HTTPMethod.GET, token: user.accessToken }))

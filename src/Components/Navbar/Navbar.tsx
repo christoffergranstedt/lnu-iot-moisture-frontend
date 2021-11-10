@@ -16,7 +16,7 @@ export const Navbar: React.FC<NavbarProps> = ({ links }) => {
 	return (
 		<StyledNav>
 			<ul>
-				{links.map(link => <li key={uuid()}><NavLink to={link.link} activeClassName='active' exact>{link.name}</NavLink></li>)}
+				{links.map(link => <li key={uuid()}><NavLink to={link.link} className={isActive => isActive ? 'active' : ''}>{link.name}</NavLink></li>)}
 			</ul>
 		</StyledNav>
 	)
