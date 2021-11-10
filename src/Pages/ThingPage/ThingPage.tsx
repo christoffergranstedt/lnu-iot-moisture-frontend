@@ -35,7 +35,7 @@ type Params = {
 
 export const ThingPage: React.FC<ThingPageProps> = (props) => {
 	const { thingId }: Params = useParams()
-	const { user } = useAuth()
+	const { user, hasAuthenticatedTelegram } = useAuth()
 	const { sendRequest } = useRequest()
 	const { data, isLoading, isError, refetch: refetchThing } = useQuery<ThingResponse>([CacheName.Thing, thingId], async () => await sendRequest({ url: `/api/things/${thingId}`, method: HTTPMethod.GET, token: user.accessToken }))
 
@@ -54,7 +54,10 @@ export const ThingPage: React.FC<ThingPageProps> = (props) => {
 			<StyledDiv>
 				<h1>Thing Page - {thing.title}</h1>
 				<p>Description {thing.description}</p>
-				<p>Id {thing.id}</p>
+				{ !hasAuthenticatedTelegram() && <p>To be able to subscribe to events or invoke actions a user must have authenticated his Telegram account with this service. 
+				Please follow this link to the <a href="https://t.me/iot_granstedt_bot" target="__blank">IOT Bot</a>. Send your userid <strong>{user.userId}</strong> in the chat to connect your telegram account to your user id.
+				After you have succesfully connected your telegram id, please sign out and sign back in for everything to be up and running </p> }
+				{ hasAuthenticatedTelegram() && <p>You have already connected a Telegram account. To update to another Telegram account, please follow this link to the <a href="https://t.me/iot_granstedt_bot" target="__blank">IOT Bot</a>. Send your userid <strong>{user.userId}</strong> in the chat to connect your telegram account to your user id. </p>} 
 				<PropertiesOverview properties={thing.properties}/>
 				<ActionsOverview actions={thing.actions}/>
 				<EventsOverview events={thing.events} refetchThing={refetchThing}/>
