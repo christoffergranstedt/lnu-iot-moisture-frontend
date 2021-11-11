@@ -60,12 +60,12 @@ export const useAuth = () => {
 			type: UserOption.RemoveUser, 
 			payload: { } 
 		})
-		await sendRequest({ url: '/api/accounts/signout', method: HTTPMethod.GET, token: user.accessToken })
+		await sendRequest({ url: '/accounts/signout', method: HTTPMethod.GET, token: user.accessToken })
   }, [dispatch, user, sendRequest])
 
 	const refreshAccessToken = React.useCallback(async () => {
 		if (!user.refreshToken) return
-		const data : RefreshData = await sendRequest({ url: '/api/accounts/refresh', method: HTTPMethod.POST, token: user.refreshToken })
+		const data : RefreshData = await sendRequest({ url: '/accounts/refresh', method: HTTPMethod.POST, token: user.refreshToken })
 		dispatch({ 
 			type: UserOption.UpdateTokens, 
 			payload: data.user

@@ -39,7 +39,7 @@ export const ThingPage: React.FC<ThingPageProps> = (props) => {
 	const { thingId }: Params = useParams()
 	const { user } = useAuth()
 	const { sendRequest } = useRequest()
-	const { data: { thing } = {}, isLoading, isError, refetch: refetchThing } = useQuery<ThingResponse>([CacheName.Thing, thingId], async () => await sendRequest({ url: `/api/things/${thingId}`, method: HTTPMethod.GET, token: user.accessToken }))
+	const { data: { thing } = {}, isLoading, isError, refetch: refetchThing } = useQuery<ThingResponse>([CacheName.Thing, thingId], async () => await sendRequest({ url: `/things/${thingId}`, method: HTTPMethod.GET, token: user.accessToken }))
 
 	if (isLoading || isError || !thing) {
 		return (

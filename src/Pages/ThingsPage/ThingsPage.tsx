@@ -32,7 +32,7 @@ export const ThingsPage: React.FC<ThingsPageProps> = (props) => {
 	const { user } = useAuth()
 	const { sendRequest } = useRequest()
 
-	const { data, isLoading, isError } = useQuery<ThingsResponse>([CacheName.Things], async () => await sendRequest({ url: '/api/things', method: HTTPMethod.GET, token: user.accessToken }))
+	const { data, isLoading, isError } = useQuery<ThingsResponse>([CacheName.Things], async () => await sendRequest({ url: '/things', method: HTTPMethod.GET, token: user.accessToken }))
 
 	return (
 		<StyledDiv>
