@@ -40,7 +40,7 @@ export const SignInPage: React.FC<SignInpageProps> = (props) => {
 
 	const onFormSubmit = async (userInput: UserInput) => {
 		try {
-			const data : AuthenticateData = await sendRequest({ url: '/api/accounts/authenticate', method: HTTPMethod.POST, body: userInput, token: null })
+			const data : AuthenticateData = await sendRequest({ url: '/accounts/authenticate', method: HTTPMethod.POST, body: userInput, token: null })
 			signin({ isSignedIn: true, ...data.user })
 			setFlash({ messageType: FlashMessageType.Success, message: 'You have succescully signed in, welcome! '})
 		} catch (error: any) {
