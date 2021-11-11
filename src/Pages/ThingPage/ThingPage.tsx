@@ -2,7 +2,6 @@ import React from 'react'
 import Loader from 'react-loader-spinner'
 import { useQuery } from 'react-query'
 import { useParams } from 'react-router'
-import styled from 'styled-components'
 
 import { useAuth } from '../../Hooks/useAuth'
 import { useRequest } from '../../Hooks/useRequest'
@@ -14,15 +13,6 @@ import { ThingDescription } from '../../Types/ThingDescription'
 import { HTTPMethod } from '../../Contants/HTTPMethod'
 import { Card } from '../../Components/Card/Card'
 import { ThingInfo } from '../../Components/ThingInfo/ThingInfo'
-
-const StyledDiv = styled.div`
-	margin: 0 auto;
-	width: 60%;
-
-	h1 {
-		text-align: center;
-	}
-`
 
 interface ThingResponse {
 	thing: ThingDescription
@@ -50,13 +40,13 @@ export const ThingPage: React.FC<ThingPageProps> = (props) => {
 		)
 	} else {
 		return (
-			<StyledDiv>
+			<>
 				<h1>Thing Page - {thing.title}</h1>
 				<Card><ThingInfo thing={thing}/></Card>
 				<Card><PropertiesOverview properties={thing.properties}/></Card>
 				<Card><ActionsOverview actions={thing.actions}/></Card>
 				<Card><EventsOverview events={thing.events} refetchThing={refetchThing}/></Card>
-			</StyledDiv>
+			</>
 		)
 	}
 }

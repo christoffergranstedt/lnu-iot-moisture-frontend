@@ -1,19 +1,9 @@
 import React from 'react'
-import styled from 'styled-components'
 
 import { UserInput, SignInForm } from '../../Components/SignInForm/SignInForm'
 import { useAuth } from '../../Hooks/useAuth'
 import { useFlash } from '../../Hooks/useFlash'
 import { FlashMessageType } from '../../Contexts/Reducers/FlashReducer'
-
-const StyledDiv = styled.div`
-
-	h1 {
-		text-align: center;
-		font-size: 42px;
-		font-weight: 100;
-	}
-`
 
 interface SignInpageProps {
 
@@ -34,9 +24,9 @@ export const SignInPage: React.FC<SignInpageProps> = (props) => {
 	}
 
 	return (
-		<StyledDiv>
+		<>
 			<h1>Sign In To Granstedt's Smart Thing Hub</h1>
 			<SignInForm onFormSubmit={onFormSubmit} isLoading={isLoading}/>
-		</StyledDiv>
+		</>
 	)
 }

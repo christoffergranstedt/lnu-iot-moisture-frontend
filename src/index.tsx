@@ -4,7 +4,7 @@ import { QueryClientProvider, QueryClient } from 'react-query'
 
 import App from './App'
 import { AppProvider } from './Contexts/App/AppContext'
-import { GlobalStyles } from './globalStyles'
+import './index.css'
 
 const queryClient = new QueryClient({ defaultOptions: { queries: { refetchOnWindowFocus: false }}})
 
@@ -12,7 +12,6 @@ ReactDOM.render(
   <React.StrictMode>
 		<AppProvider>
 			<QueryClientProvider client={queryClient}>
-				<GlobalStyles/>
 				<App/>
 			</QueryClientProvider>
 		</AppProvider>
