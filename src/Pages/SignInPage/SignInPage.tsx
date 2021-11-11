@@ -26,7 +26,7 @@ export const SignInPage: React.FC<SignInpageProps> = (props) => {
 
 	const onFormSubmit = async (userInput: UserInput) => {
 		try {
-			signin(userInput.username, userInput.password)
+			await signin(userInput.username, userInput.password)
 			setFlash({ messageType: FlashMessageType.Success, message: 'You have succescully signed in, welcome! '})
 		} catch (error: any) {
 			setFlash({ messageType: FlashMessageType.Error, message: error.message })
