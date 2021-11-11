@@ -62,9 +62,9 @@ export const Event: React.FC<EventProps> = ({ event, refetchThing }) => {
 
 	React.useEffect(() => {
 		setIsSubscribing(event.isSubscribing)
+		console.log('test')
 	}, [event.isSubscribing])
 
-	console.log(isSubscribing)
 	return (
 		<StyledDiv>
 			<div className='info'><p>{event.title}</p></div>

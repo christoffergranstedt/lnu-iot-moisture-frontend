@@ -6,7 +6,7 @@ import App from './App'
 import { AppProvider } from './Contexts/App/AppContext'
 import { GlobalStyles } from './globalStyles'
 
-const queryClient = new QueryClient()
+const queryClient = new QueryClient({ defaultOptions: { queries: { refetchOnWindowFocus: false }}})
 
 ReactDOM.render(
   <React.StrictMode>
