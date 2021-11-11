@@ -55,7 +55,10 @@ export const Action: React.FC<ActionProps> = ({ action }) => {
 
 		if (!form) throw new Error('No form found')
 
-		await sendRequest({ url: form.href, method: form.methodName, token: user.accessToken })
+		if (!process.env.REACT_APP_BACKEND_URL) throw new Error('REACT_APP_BACKEND_URL is not set as an environment variable')
+		const url = form.href.replace(process.env.REACT_APP_BACKEND_URL, '')
+		console.log(url)
+		await sendRequest({ url: url, method: form.methodName, token: user.accessToken })
 	}
 
 	return (

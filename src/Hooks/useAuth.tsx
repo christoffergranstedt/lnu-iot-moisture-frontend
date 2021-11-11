@@ -5,14 +5,15 @@ import { AppContext } from '../Contexts/App/AppContext'
 import { UserOption } from '../Contexts/Reducers/UserReducer'
 import { useRequest } from './useRequest'
 
-interface UserPayload {
-	isSignedIn: boolean
-	userId: number
-	username: string
-	accessToken: string
-	accessTokenExpirationDate: number
-	refreshToken: string
-	telegramId: string
+interface AuthenticateData {
+	user: {
+		userId: number
+		username: string
+		accessToken: string
+		accessTokenExpirationDate: number
+		refreshToken: string
+		telegramId: string
+	}
 }
 
 interface RefreshData {
@@ -45,13 +46,16 @@ export const useAuth = () => {
 		return false
   }, [user])
 
-	const signin = React.useCallback((userPayload: UserPayload) => {
+	const signin = React.useCallback(async(username: string, password: string) => {
+		const data: AuthenticateData = await sendRequest({ url: '/accounts/authenticate', method: HTTPMethod.POST, body: { username: username, password: password}, token: null })
+
+		const userData = { ...data.user, isSignedIn: true }
 		dispatch({ 
 			type: UserOption.SetUser, 
-			payload: userPayload
+			payload: userData
 		})
-    localStorage.setItem(LocalStorageName.UserData,JSON.stringify(userPayload))
-  }, [dispatch])
+    localStorage.setItem(LocalStorageName.UserData,JSON.stringify(userData))
+  }, [dispatch, sendRequest])
 
 	const signout = React.useCallback(async () => {
 		if (!user.accessToken) return
@@ -74,7 +78,6 @@ export const useAuth = () => {
   }, [dispatch, sendRequest, user])
 
 	const hasAuthenticatedTelegram = React.useCallback(() => {
-		console.log(!!user.telegramId)
 		return !!user.telegramId
   }, [user])
 
@@ -83,10 +86,14 @@ export const useAuth = () => {
 
 		const rawUserData = localStorage.getItem(LocalStorageName.UserData)
 		if (!rawUserData) return
-    const userData = JSON.parse(rawUserData)
+    const userDataTest = JSON.parse(rawUserData)
 
-    if (userData.accessToken && userData.accessTokenExpirationDate > new Date().getTime()) {
-			signin({ isSignedIn: true, ...userData})
+    if (userDataTest.accessToken && userDataTest.accessTokenExpirationDate > new Date().getTime()) {
+			const userData = { ...userDataTest, isSignedIn: true }
+			dispatch({ 
+				type: UserOption.SetUser, 
+				payload: userData
+			})
     }
   }, [user, dispatch, signin])
 

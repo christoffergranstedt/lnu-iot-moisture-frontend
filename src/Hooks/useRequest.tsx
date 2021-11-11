@@ -15,6 +15,11 @@ export const useRequest = () => {
     try {
 			if (!process.env.REACT_APP_BACKEND_URL) throw new Error('No REACT_APP_BACKEND_URL environment variable is provided')
 
+      const test = `${process.env.REACT_APP_BACKEND_URL}${url}`
+      console.log(url)
+      console.log(process.env.REACT_APP_BACKEND_URL)
+      console.log(test)
+
       const { data } = await axios({
         url: `${process.env.REACT_APP_BACKEND_URL}${url}`,  
         method: method,

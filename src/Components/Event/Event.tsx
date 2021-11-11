@@ -58,8 +58,13 @@ interface EventProps {
 export const Event: React.FC<EventProps> = ({ event, refetchThing }) => {
 	const { hasAuthenticatedTelegram } = useAuth()
 	const { handleSubscriptionToEvent: subscribeToEvent } = useEvent()
-	const [isSubscribing, setIsSubscribing] = React.useState<boolean>(event.isSubscribing)
-	
+	const [isSubscribing, setIsSubscribing] = React.useState<boolean>(false)
+
+	React.useEffect(() => {
+		setIsSubscribing(event.isSubscribing)
+	}, [event.isSubscribing])
+
+	console.log(isSubscribing)
 	return (
 		<StyledDiv>
 			<div className='info'><p>{event.title}</p></div>
