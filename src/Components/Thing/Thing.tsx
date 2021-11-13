@@ -1,34 +1,14 @@
 import React from 'react'
 import { useNavigate } from 'react-router'
-import styled from 'styled-components'
 
 import { ThingDescription } from '../../Types/ThingDescription'
 
-const StyledDiv = styled.div`
-	box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1), 0 1px 10px 0 rgba(0, 0, 0, 0.15);
-	margin: 20px 0px;
-	background: white;
-	cursor: pointer;
-	width: 50%;
-	margin: 0 auto;
-	padding: 10px;
-	border-radius: 10px;
-
-	&:hover {
-		background: rgb(235, 235, 235);
-	}
-
-	h3 {
-		font-size: 19px;
-		margin-bottom: 5px;
-	}
-`
-
 interface ThingProps {
 	thing: ThingDescription
+	className?: string
 }
 
-export const Thing: React.FC<ThingProps> = ({ thing }) => {
+export const Thing: React.FC<ThingProps> = ({ thing, className }) => {
 	const navigate = useNavigate()
 
 	const openThingPage = () => {
@@ -36,9 +16,9 @@ export const Thing: React.FC<ThingProps> = ({ thing }) => {
 	}
 
 	return (
-		<StyledDiv onClick={openThingPage}>
-			<h3>{thing.title}</h3>
-			<p>Description: {thing.description}</p>
-		</StyledDiv>
+		<button className={`${className} rounded-xl p-4 cursor-pointer border-2 border-secondary text-white hover:bg-secondary hover:text-gray-800`} onClick={openThingPage}>
+			<h3 className="text-2xl">{thing.title}</h3>
+			<p><strong>Description:</strong> {thing.description}</p>
+		</button>
 	)
 }

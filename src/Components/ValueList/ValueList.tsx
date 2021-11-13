@@ -1,31 +1,8 @@
 import React from 'react'
 import { v4 as uuid } from 'uuid'
-import styled from 'styled-components'
 import dayjs from 'dayjs'
 
 import { ValueDescription } from '../../Types/ValueDescription'
-
-const StyledDiv = styled.div`
-	display: block;
-	width: 100%;
-
-	button {
-		margin-top: 10px;
-		margin-bottom: 10px;
-		margin-right: 10px;
-		background: rgb(192, 116, 116);
-		border-radius: 8px;
-		border: none;
-		color: white;
-		text-decoration: none;
-		font-size: 16px;
-		cursor: pointer;
-
-		&:hover {
-			background:rgb(206, 129, 129);
-		}		
-	}
-`
 
 interface ValuesProps {
 	values: ValueDescription[]
@@ -50,11 +27,11 @@ export const ValueList: React.FC<ValuesProps> = ({ values }) => {
 	}
 
 	return (
-		<StyledDiv>
+		<>
 			{valuesToDisplay.map(value => {
 				return <p key={uuid()}>{`${parseInt(value.value)}%`} - {dayjs(value.date).format('YYYY-MM-DD HH:mm')}</p>
 			})}
 			{ numberOfValuesToShow > values.length ? null : <button onClick={loadMore}>Load more</button> }
-		</StyledDiv>
+		</>
 	)
 }

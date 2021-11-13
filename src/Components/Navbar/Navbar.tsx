@@ -1,23 +1,31 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import { v4 as uuid } from 'uuid'
-import styled from 'styled-components'
 
-const StyledNav = styled.nav`
-	display: inline-block;
-`
+import { useAuth } from '../../Hooks/useAuth'
 
 interface NavbarProps {
+	className: string
 	links: { name: string, link: string}[]
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ links }) => {
+export const Navbar: React.FC<NavbarProps> = ({ className, links }) => {
+	const { isSignedIn, signout } = useAuth()
+	const navigate = useNavigate()
+
+	const signOutHandler = async (event: React.MouseEvent<HTMLElement>) => {
+		await signout()
+		navigate('/')
+	}
 
 	return (
-		<StyledNav>
-			<ul>
-				{links.map(link => <li key={uuid()}><NavLink to={link.link} className={isActive => isActive ? 'active' : ''}>{link.name}</NavLink></li>)}
+		<nav className={className}>
+			<ul className="text-right mr-24">
+				{links.map(link => {
+					return <li className="px-12 inline-block" key={uuid()}><NavLink to={link.link} className={isActive => isActive ? 'active' : 'hover:border-2 hover:border-white'}>{link.name}</NavLink></li>
+				})}
+				{isSignedIn() && <li className="px-12 inline-block"><button onClick={signOutHandler}>sign out</button></li>}
 			</ul>
-		</StyledNav>
+		</nav>
 	)
 }

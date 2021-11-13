@@ -14,14 +14,14 @@ export enum FlashMessageType {
 
 export type FlashType = {
 	messageType: FlashMessageType | null
-	message: string | null
+	message: React.ReactNode | null
 	showFlash: boolean
 }
 
 type FlashPayload = {
   [FlashOption.SetFlash]: {
 		messageType: FlashMessageType
-		message: string
+		message: React.ReactNode
   };
   [FlashOption.RemoveFlash]: { };
 }

@@ -2,7 +2,6 @@ import React from 'react'
 import Loader from 'react-loader-spinner'
 import { useQuery } from 'react-query'
 import { useParams } from 'react-router'
-import styled from 'styled-components'
 
 import { useAuth } from '../../Hooks/useAuth'
 import { useRequest } from '../../Hooks/useRequest'
@@ -14,15 +13,9 @@ import { ThingDescription } from '../../Types/ThingDescription'
 import { HTTPMethod } from '../../Contants/HTTPMethod'
 import { Card } from '../../Components/Card/Card'
 import { ThingInfo } from '../../Components/ThingInfo/ThingInfo'
-
-const StyledDiv = styled.div`
-	margin: 0 auto;
-	width: 60%;
-
-	h1 {
-		text-align: center;
-	}
-`
+import { Heading } from '../../Components/Heading/Heading'
+import { useFlash } from '../../Hooks/useFlash'
+import { FlashMessageType } from '../../Contexts/Reducers/FlashReducer'
 
 interface ThingResponse {
 	thing: ThingDescription
@@ -37,9 +30,38 @@ type Params = {
 
 export const ThingPage: React.FC<ThingPageProps> = (props) => {
 	const { thingId }: Params = useParams()
-	const { user } = useAuth()
 	const { sendRequest } = useRequest()
+	const { hasAuthenticatedTelegram, user } = useAuth()
 	const { data: { thing } = {}, isLoading, isError, refetch: refetchThing } = useQuery<ThingResponse>([CacheName.Thing, thingId], async () => await sendRequest({ url: `/things/${thingId}`, method: HTTPMethod.GET, token: user.accessToken }))
+	const { setFlash } = useFlash()
+
+
+
+	React.useEffect(() => {
+		const infoAboutAccount = (): React.ReactNode => {
+			if (!hasAuthenticatedTelegram()) {
+				return (
+					<p>To be able to subscribe to events or invoke actions a user must have authenticated his Telegram account with this service. 
+					Please follow this link to the <a href="https://t.me/iot_granstedt_bot" target="__blank">IOT Bot</a>. Send your userid <strong>{user.userId}</strong> in the chat to connect your telegram account to your user id.
+					After you have succesfully connected your telegram id, please sign out and sign back in for everything to be up and running</p>
+				)
+			}
+			if (hasAuthenticatedTelegram()) {
+				return (
+					<p>You have already connected a Telegram account. To update to another Telegram account, please follow this link to the <a className="text-primary" href="https://t.me/iot_granstedt_bot" target="__blank">IOT Bot</a>. Send your userid <strong>{user.userId}</strong> in the chat to connect your telegram account to your user id.</p>
+				)
+			}
+		}
+
+		if (!hasAuthenticatedTelegram()) {
+			setFlash({ messageType: FlashMessageType.Warning, message: infoAboutAccount()}, 10)
+		}
+
+		if (hasAuthenticatedTelegram()) {
+			setFlash({ messageType: FlashMessageType.Success, message: infoAboutAccount()}, 5)
+		}
+
+}, [hasAuthenticatedTelegram, setFlash, user.userId])
 
 	if (isLoading || isError || !thing) {
 		return (
@@ -50,13 +72,13 @@ export const ThingPage: React.FC<ThingPageProps> = (props) => {
 		)
 	} else {
 		return (
-			<StyledDiv>
-				<h1>Thing Page - {thing.title}</h1>
-				<Card><ThingInfo thing={thing}/></Card>
-				<Card><PropertiesOverview properties={thing.properties}/></Card>
-				<Card><ActionsOverview actions={thing.actions}/></Card>
-				<Card><EventsOverview events={thing.events} refetchThing={refetchThing}/></Card>
-			</StyledDiv>
+			<div className="container mx-auto text-gray-800">
+				<Heading>{thing.title}</Heading>
+				<Card className="my-6"><ThingInfo className="bg-secondary p-4" thing={thing}/></Card>
+				<Card className="my-6"><PropertiesOverview className="bg-fourth p-4" properties={thing.properties}/></Card>
+				<Card className="my-6"><ActionsOverview className="bg-fourth p-4" actions={thing.actions}/></Card>
+				<Card className="my-6"><EventsOverview className="bg-fourth p-4" events={thing.events} refetchThing={refetchThing}/></Card>
+			</div>
 		)
 	}
 }

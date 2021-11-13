@@ -1,32 +1,7 @@
 import React from 'react'
-import styled from 'styled-components'
+import { FlashMessageType } from '../../Contexts/Reducers/FlashReducer'
 
 import { useFlash } from '../../Hooks/useFlash'
-
-const StyledDiv = styled.div`
-	display: block;
-	width: 100%;
-	height: 30px;
-	text-align: center;
-	z-index: 999;
-	position: absolute;
-	top: 0;
-	left: 0;
-	color: white;
-	padding-top: 5px;
-
-	&.error {
-		background: rgb(196, 55, 55);	
-	}
-
-	&.success {
-		background: rgb(57, 131, 28);
-	}
-
-	&.warning {
-		background: rgb(245, 202, 12);
-	}
-`
 
 interface FlashProps {
 
@@ -38,9 +13,9 @@ export const Flash: React.FC<FlashProps> = (props) => {
 
 	if (showFlash && flashMessageType) {
 		return (
-			<StyledDiv className={flashMessageType}>
+			<div className={`${flashMessageType === FlashMessageType.Error ? 'bg-red-800' : flashMessageType === FlashMessageType.Success ? 'bg-green-500' : 'bg-yellow-500'} z-10 absolute top-0 w-full text-center`}>
 				<p>{flashMessage}</p>
-			</StyledDiv>
+			</div>
 		)
 	} else {
 		return null

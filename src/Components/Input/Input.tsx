@@ -1,32 +1,6 @@
-import styled from 'styled-components'
-
-const StyledDiv = styled.div`
-	display: block;
-	margin: 10px 0px;
-	font-size: 14px;
-	
-	label {
-		display: block;
-		width: 100%;
-	}
-
-	input {
-		display: block;
-		width: 100%;
-		border: 1px solid rgb(200, 200, 200);
-		border-radius: 5px;
-		height: 30px;
-		text-indent: 5px;
-		font-size: 14px;
-
-		&:hover {
-			border: 1px solid rgb(5, 88, 105);
-		}
-	}
-`
-
 interface InputProps {
 	name: string
+  className?: string
 	label: string
 	type?: string
 	errorText?: string
@@ -35,16 +9,16 @@ interface InputProps {
 	register: any
 }
 
-export const Input = ({ name, label, type = 'text', errorText, disabled, error, register }: InputProps) => {
+export const Input = ({ name, className, label, type = 'text', errorText, disabled, error, register }: InputProps) => {
   return (
-    <StyledDiv>
-      <label htmlFor={name}>
+    <div className={`${className}`}>
+      <label className="text-left inline-block w-24" htmlFor={name}>
         {label}
       </label>
-      <input type={type} disabled={disabled} {...register(name)}/>
+      <input className="w-96 h-8 px-3 rounded-md text-gray-600" type={type} disabled={disabled} {...register(name)}/>
       <section>
         {error && <p>{errorText}</p>}
       </section>
-    </StyledDiv>
+    </div>
   )
 }

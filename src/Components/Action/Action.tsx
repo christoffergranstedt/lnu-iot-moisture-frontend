@@ -1,49 +1,15 @@
 import React from 'react'
-import styled from 'styled-components'
 
 import { useAuth } from '../../Hooks/useAuth'
 import { useRequest } from '../../Hooks/useRequest'
 import { ActionDescription } from '../../Types/ActionDescription'
 
-const StyledDiv = styled.div`
-	border: 1px solid rgb(200, 200, 200);
-	border-radius: 10px;
-	padding: 15px;
-	margin: 10px;
-	display: flex;
-	align-items: center;
-
-	div.info {
-		flex: 1 1 50%;
-		display: inline;
-		margin-right: 50px;
-	}
-
-	div.actions {
-		flex: 1 1 50%;
-
-		button {
-			background: rgb(192, 116, 116);
-			border-radius: 8px;
-			border: none;
-			color: white;
-			text-decoration: none;
-			font-size: 14px;
-			cursor: pointer;
-			padding: 10px 15px;
-
-			&:hover {
-				background: rgb(206, 129, 129);			
-			}
-		}
-	}
-`
-
 interface ActionProps {
 	action: ActionDescription
+	className?: string
 }
 
-export const Action: React.FC<ActionProps> = ({ action }) => {
+export const Action: React.FC<ActionProps> = ({ action, className }) => {
 	const { sendRequest } = useRequest()
 	const { user } = useAuth()
 	
@@ -61,9 +27,9 @@ export const Action: React.FC<ActionProps> = ({ action }) => {
 	}
 
 	return (
-		<StyledDiv>
-			<div className='info'><p>{action.title}</p></div>
-			<div className='actions'><button onClick={invokeAction}>Invoke</button></div>
-		</StyledDiv>
+		<div className={`${className} inline-block w-96 text-center py-2 rounded-md`}>
+			<h5 className="text-xl">{action.title}</h5>
+			<button className="my-2 bg-green-600 text-white w-28 h-8 rounded-md hover:bg-green-500" onClick={invokeAction}>Invoke</button>
+		</div>
 	)
 }
