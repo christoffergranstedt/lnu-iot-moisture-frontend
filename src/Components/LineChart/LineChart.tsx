@@ -1,33 +1,27 @@
-import * as React from "react"
-
+import React from "react"
 import { ResponsiveLine } from "@nivo/line"
 
+import { LineChartData } from '../../Types/LineChartData'
+
 export interface HeadingProps {
-  incomingData: any
+  data: LineChartData[]
 }
 
-
-export const LineChart: React.FC<HeadingProps> = ({ incomingData }) => {
-
-  const [data, setData] = React.useState([])
-
-  React.useEffect(() => {
-    setData([])
-  }, [data])
+export const LineChart: React.FC<HeadingProps> = ({ data }) => {
 
   if (data) {
     return (
       <div style={{ height: 420, maxWidth: "100%" }}>
         <ResponsiveLine
           data={data}
-          margin={{ top: 20, right: 20, bottom: 60, left: 80 }}
+          margin={{ top: 20, right: 20, bottom: 20, left: 40 }}
           animate={true}
           enableSlices={"x"}
           yScale={{
             type: "linear",
             stacked: true,
             min: 0,
-            max: 1000
+            max: 100
           }}
           lineWidth={3}
           curve="linear"

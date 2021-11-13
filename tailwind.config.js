@@ -26,9 +26,6 @@ module.exports = {
       },
       width: {
         '124': '36rem'
-      },
-      backgroundImage: {
-        'main': "url('./Assets/Images/background.jpg')",
       }
     }
   },
