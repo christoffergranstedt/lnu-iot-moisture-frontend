@@ -4,7 +4,7 @@ import { QueryClientProvider, QueryClient } from 'react-query'
 
 import App from './App'
 import { AppProvider } from './Contexts/App/AppContext'
-import './index.css'
+import './styles/index.css'
 
 const queryClient = new QueryClient({ defaultOptions: { queries: { refetchOnWindowFocus: false }}})
 
