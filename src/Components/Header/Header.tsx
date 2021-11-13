@@ -20,10 +20,14 @@ export const Header: React.FC<HeaderProps> = ({ className }) => {
   React.useEffect(() => {
     if (isSignedIn()) {
       setLinks([
+        { name: 'start', link: `/` },
         { name: 'things', link: `/things` }
       ])
     } else {
-			setLinks([])
+			setLinks([ 
+				{ name: 'start', link: '/'},
+				{ name: 'sign in', link: '/auth/signin'}
+			])
 		}
   }, [isSignedIn, userId, user.isSignedIn])
 
@@ -34,8 +38,8 @@ export const Header: React.FC<HeaderProps> = ({ className }) => {
 	}
 	
 	return (
-		<header className={className}>
-			<Navbar links={links}/>
+		<header className={`${className} my-auto`}>
+			<Navbar className="h-full flex justify-end items-center" links={links}/>
 			{ user.isSignedIn ? <button onClick={signoutUser}>sign out</button> : null }
 		</header>
 	)

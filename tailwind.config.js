@@ -20,7 +20,11 @@ module.exports = {
         secondary: '#efc18d',
         third: '#b79aea',
         fourth: '#a6c9ef',
-        fifth: '#efaa9b'
+        fifth: '#efaa9b',
+        sixth: '#322b50'
+      },
+      width: {
+        '124': '36rem'
       }
     }
   },

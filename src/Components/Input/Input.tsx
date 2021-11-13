@@ -15,7 +15,7 @@ export const Input = ({ name, className, label, type = 'text', errorText, disabl
       <label className="text-left inline-block w-24" htmlFor={name}>
         {label}
       </label>
-      <input className="w-96 h-8 px-3 rounded-md text-black" type={type} disabled={disabled} {...register(name)}/>
+      <input className="w-96 h-8 px-3 rounded-md text-gray-600" type={type} disabled={disabled} {...register(name)}/>
       <section>
         {error && <p>{errorText}</p>}
       </section>

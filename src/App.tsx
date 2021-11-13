@@ -4,6 +4,7 @@ import { Flash } from './Components/Flash/Flash'
 import { Header } from './Components/Header/Header'
 import { useAuth } from './Hooks/useAuth'
 import { HomePage } from './Pages/HomePage/HomePage'
+import { SignInPage } from './Pages/SignInPage/SignInPage'
 import { ThingPage } from './Pages/ThingPage/ThingPage'
 import { ThingsPage } from './Pages/ThingsPage/ThingsPage'
 
@@ -15,12 +16,14 @@ function App() {
 		routes = (
 			<Routes>
 				<Route path='/' element={<HomePage/>}></Route>
+				<Route path='/auth/signin' element={<SignInPage/>}></Route>
 				<Route path="*" element={<Navigate replace to="/" />} />
 			</Routes>
 		)
 	} else {
 		routes = (
-			<Routes>	
+			<Routes>
+				<Route path='/' element={<HomePage/>}></Route>
 				<Route path='/things' element={<ThingsPage/>}/>
 				<Route path='/things/:thingId' element={<ThingPage/>}/>
 				<Route path="*" element={<Navigate replace to="/things" />} />
@@ -29,11 +32,11 @@ function App() {
 	}
 
   return (
-    <div className="h-screen text-white">
+    <div className="flex flex-col h-screen text-white">
 			<Router>
-				<Header className="bg-gradient-to-r from-primary to-primaryHover h-1/6"/>
+				<Header className={`${isSignedIn() ? 'bg-gradient-to-r from-primary to-primaryHover' : 'bg-gradient-to-r from-primary to-primaryHover'} flex-grow-0 h-16 lg:h-32 flex-shrink-0"`}/>
 				<Flash/>
-				<main className="bg-gradient-to-r from-primary to-primaryHover h-5/6">
+				<main className="bg-gradient-to-r from-primary to-primaryHover mx-auto flex-grow w-full">
 					{routes}	
 				</main>
 			</Router>
