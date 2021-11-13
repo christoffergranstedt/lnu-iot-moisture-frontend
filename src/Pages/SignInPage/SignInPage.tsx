@@ -4,6 +4,7 @@ import { UserInput, SignInForm } from '../../Components/SignInForm/SignInForm'
 import { useAuth } from '../../Hooks/useAuth'
 import { useFlash } from '../../Hooks/useFlash'
 import { FlashMessageType } from '../../Contexts/Reducers/FlashReducer'
+import { Heading } from '../../Components/Heading/Heading'
 
 interface SignInProps {
 
@@ -25,7 +26,7 @@ export const SignInPage: React.FC<SignInProps> = (props) => {
 
 	return (
 		<>
-    <h1 className="text-3xl text-center mb-12">sign in</h1>
+    <Heading>sign in</Heading>
       <SignInForm onFormSubmit={onFormSubmit} isLoading={isLoading}/>
 		</>
 	)

@@ -9,6 +9,7 @@ import { CacheName } from '../../Contants/CacheName'
 import { ThingDescription } from '../../Types/ThingDescription'
 import { HTTPMethod } from '../../Contants/HTTPMethod'
 import { Thing } from '../../Components/Thing/Thing'
+import { Heading } from '../../Components/Heading/Heading'
 
 interface ThingsResponse {
 	things: ThingDescription[]
@@ -26,12 +27,13 @@ export const ThingsPage: React.FC<ThingsPageProps> = (props) => {
 
 	return (
 		<>
-			<h1>Granstedt's Things - {user.username}</h1>
+			<Heading>Granstedt's Things - {user.username}</Heading>
 			{ isLoading ? <Loader type="ThreeDots" color="#cccccc" height={30} /> : null }
-			{ !isLoading && !isError && data?.things ? data.things.map(thing => {
-				return <Thing key={uuid()} thing={thing}/>
-			}) : null
-		}
+			<div className="flex flex-wrap justify-center">
+				{ !isLoading && !isError && data?.things ? data.things.map(thing => {
+					return <Thing className="w-124 h-72 m-4" key={uuid()} thing={thing}/>
+				}) : null }
+			</div>
 		</>
 	)
 }
