@@ -3,18 +3,20 @@ import { v4 as uuid } from 'uuid'
 
 import { PropertyDescription } from '../../Types/PropertyDescription'
 import { Property } from '../Property/Property'
+import { SubHeading } from '../SubHeading/SubHeading'
 
 interface PropertiesProps {
 	properties: PropertyDescription[]
+	className?: string
 }
 
-export const PropertiesOverview: React.FC<PropertiesProps> = ({ properties }) => {
+export const PropertiesOverview: React.FC<PropertiesProps> = ({ properties, className }) => {
 	return (
-		<>
-		<h3>Properties</h3>
-		{properties.map(property => {
-			return <Property key={uuid()} property={property}/>
-		})}
-		</>
+		<div className={className}>
+			<SubHeading>Properties</SubHeading>
+			{properties.map(property => {
+				return <Property key={uuid()} property={property}/>
+			})}
+		</div>
 	)
 }

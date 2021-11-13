@@ -72,12 +72,12 @@ export const ThingPage: React.FC<ThingPageProps> = (props) => {
 		)
 	} else {
 		return (
-			<div className="container mx-auto">
+			<div className="container mx-auto text-gray-800">
 				<Heading>Thing Page - {thing.title}</Heading>
-				<Card className="my-6"><ThingInfo thing={thing}/></Card>
-				<Card className="my-6"><PropertiesOverview properties={thing.properties}/></Card>
-				<Card className="my-6"><ActionsOverview actions={thing.actions}/></Card>
-				<Card className="my-6"><EventsOverview events={thing.events} refetchThing={refetchThing}/></Card>
+				<Card className="my-6"><ThingInfo className="bg-secondary p-4" thing={thing}/></Card>
+				<Card className="my-6"><PropertiesOverview className="bg-fourth p-4" properties={thing.properties}/></Card>
+				<Card className="my-6"><ActionsOverview className="bg-fourth p-4" actions={thing.actions}/></Card>
+				<Card className="my-6"><EventsOverview className="bg-fourth p-4" events={thing.events} refetchThing={refetchThing}/></Card>
 			</div>
 		)
 	}

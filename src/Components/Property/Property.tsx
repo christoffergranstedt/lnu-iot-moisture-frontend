@@ -5,17 +5,12 @@ import { ValueList } from '../ValueList/ValueList'
 
 interface PropertyProps {
 	property: PropertyDescription
+	className?: string
 }
 
-export const Property: React.FC<PropertyProps> = ({ property }) => {
-	const [className, setClassName] = React.useState<string>('hidden')
-
-	const toggleDisplay = (event: React.MouseEvent<HTMLParagraphElement>) => {
-		className === 'hidden' ? setClassName('display') : setClassName('hidden')
-	}
+export const Property: React.FC<PropertyProps> = ({ property, className }) => {
 	return (
 		<>
-			<div className='title' onClick={toggleDisplay}><p>{property.title}</p></div>
 			<div className={className}>
 				<ValueList values={property.values}/>
 			</div>
