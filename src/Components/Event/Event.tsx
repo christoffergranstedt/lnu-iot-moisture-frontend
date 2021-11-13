@@ -17,7 +17,6 @@ export const Event: React.FC<EventProps> = ({ event, refetchThing, className }) 
 
 	React.useEffect(() => {
 		setIsSubscribing(event.isSubscribing)
-		console.log('test')
 	}, [event.isSubscribing])
 
 	return (

@@ -9,6 +9,7 @@ interface PropertyProps {
 }
 
 export const Property: React.FC<PropertyProps> = ({ property, className }) => {
+	console.log(property)
 	return (
 		<>
 			<div className={className}>

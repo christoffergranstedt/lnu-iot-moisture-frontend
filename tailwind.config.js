@@ -13,6 +13,7 @@ module.exports = {
       'xl': '1280px',
       '2xl': '1536px',
     },
+    
     extend: {
       colors: {
         primary: '#49426c',
@@ -25,6 +26,9 @@ module.exports = {
       },
       width: {
         '124': '36rem'
+      },
+      backgroundImage: {
+        'main': "url('./Assets/Images/background.jpg')",
       }
     }
   },

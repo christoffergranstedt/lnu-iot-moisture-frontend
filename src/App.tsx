@@ -34,9 +34,9 @@ function App() {
   return (
     <div className="flex flex-col h-screen text-white">
 			<Router>
-				<Header className={`${isSignedIn() ? 'bg-gradient-to-r from-primary to-primaryHover' : 'bg-gradient-to-r from-primary to-primaryHover'} flex-grow-0 h-16 lg:h-32 flex-shrink-0"`}/>
+				<Header className="bg-primaryHover flex-grow-0 h-16 lg:h-32 flex-shrink-0"/>
 				<Flash/>
-				<main className="bg-gradient-to-r from-primary to-primaryHover mx-auto flex-grow w-full">
+				<main className="bg-gradient-to-t from-primary to-primaryHover mx-auto flex-grow w-full">
 					{routes}	
 				</main>
 			</Router>

@@ -29,7 +29,7 @@ export const Action: React.FC<ActionProps> = ({ action, className }) => {
 	return (
 		<div className={`${className} inline-block w-96 text-center py-2 rounded-md`}>
 			<h5 className="text-xl">{action.title}</h5>
-			<button className="my-2 bg-primary text-white w-28 h-8 rounded-md hover:bg-primaryHover" onClick={invokeAction}>Invoke</button>
+			<button className="my-2 bg-green-600 text-white w-28 h-8 rounded-md hover:bg-green-500" onClick={invokeAction}>Invoke</button>
 		</div>
 	)
 }
