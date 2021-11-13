@@ -1,9 +1,6 @@
 import React from 'react'
-import { useNavigate  } from 'react-router'
 
 import { useAuth } from '../../Hooks/useAuth'
-import { useFlash } from '../../Hooks/useFlash'
-import { FlashMessageType } from '../../Contexts/Reducers/FlashReducer'
 import { Navbar } from '../Navbar/Navbar'
 
 interface HeaderProps {
@@ -11,11 +8,9 @@ interface HeaderProps {
 }
 
 export const Header: React.FC<HeaderProps> = ({ className }) => {
-	const { user, isSignedIn, signout } = useAuth()
+	const { user, isSignedIn } = useAuth()
   const [links, setLinks] = React.useState<{ name: string; link: string }[]>([])
 	const { userId } = user
-	const navigate = useNavigate()
-	const { setFlash }  = useFlash()
 
   React.useEffect(() => {
     if (isSignedIn()) {
@@ -30,17 +25,10 @@ export const Header: React.FC<HeaderProps> = ({ className }) => {
 			])
 		}
   }, [isSignedIn, userId, user.isSignedIn])
-
-	const signoutUser = () => {
-		signout()
-		setFlash({ messageType: FlashMessageType.Success, message: 'You have now signed out' })
-		navigate({ pathname: '/' })
-	}
 	
 	return (
 		<header className={`${className} my-auto`}>
 			<Navbar className="h-full flex justify-end items-center" links={links}/>
-			{ user.isSignedIn ? <button onClick={signoutUser}>sign out</button> : null }
 		</header>
 	)
 }

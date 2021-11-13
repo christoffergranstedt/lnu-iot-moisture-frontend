@@ -13,6 +13,9 @@ import { ThingDescription } from '../../Types/ThingDescription'
 import { HTTPMethod } from '../../Contants/HTTPMethod'
 import { Card } from '../../Components/Card/Card'
 import { ThingInfo } from '../../Components/ThingInfo/ThingInfo'
+import { Heading } from '../../Components/Heading/Heading'
+import { useFlash } from '../../Hooks/useFlash'
+import { FlashMessageType } from '../../Contexts/Reducers/FlashReducer'
 
 interface ThingResponse {
 	thing: ThingDescription
@@ -27,9 +30,38 @@ type Params = {
 
 export const ThingPage: React.FC<ThingPageProps> = (props) => {
 	const { thingId }: Params = useParams()
-	const { user } = useAuth()
 	const { sendRequest } = useRequest()
+	const { hasAuthenticatedTelegram, user } = useAuth()
 	const { data: { thing } = {}, isLoading, isError, refetch: refetchThing } = useQuery<ThingResponse>([CacheName.Thing, thingId], async () => await sendRequest({ url: `/things/${thingId}`, method: HTTPMethod.GET, token: user.accessToken }))
+	const { setFlash } = useFlash()
+
+
+
+	React.useEffect(() => {
+		const infoAboutAccount = (): React.ReactNode => {
+			if (!hasAuthenticatedTelegram()) {
+				return (
+					<p>To be able to subscribe to events or invoke actions a user must have authenticated his Telegram account with this service. 
+					Please follow this link to the <a href="https://t.me/iot_granstedt_bot" target="__blank">IOT Bot</a>. Send your userid <strong>{user.userId}</strong> in the chat to connect your telegram account to your user id.
+					After you have succesfully connected your telegram id, please sign out and sign back in for everything to be up and running</p>
+				)
+			}
+			if (hasAuthenticatedTelegram()) {
+				return (
+					<p>You have already connected a Telegram account. To update to another Telegram account, please follow this link to the <a className="text-primary" href="https://t.me/iot_granstedt_bot" target="__blank">IOT Bot</a>. Send your userid <strong>{user.userId}</strong> in the chat to connect your telegram account to your user id.</p>
+				)
+			}
+		}
+
+		if (!hasAuthenticatedTelegram()) {
+			setFlash({ messageType: FlashMessageType.Warning, message: infoAboutAccount()}, 10)
+		}
+
+		if (hasAuthenticatedTelegram()) {
+			setFlash({ messageType: FlashMessageType.Success, message: infoAboutAccount()}, 5)
+		}
+
+}, [hasAuthenticatedTelegram, setFlash, user.userId])
 
 	if (isLoading || isError || !thing) {
 		return (
@@ -40,13 +72,13 @@ export const ThingPage: React.FC<ThingPageProps> = (props) => {
 		)
 	} else {
 		return (
-			<>
-				<h1>Thing Page - {thing.title}</h1>
-				<Card><ThingInfo thing={thing}/></Card>
-				<Card><PropertiesOverview properties={thing.properties}/></Card>
-				<Card><ActionsOverview actions={thing.actions}/></Card>
-				<Card><EventsOverview events={thing.events} refetchThing={refetchThing}/></Card>
-			</>
+			<div className="container mx-auto">
+				<Heading>Thing Page - {thing.title}</Heading>
+				<Card className="my-6"><ThingInfo thing={thing}/></Card>
+				<Card className="my-6"><PropertiesOverview properties={thing.properties}/></Card>
+				<Card className="my-6"><ActionsOverview actions={thing.actions}/></Card>
+				<Card className="my-6"><EventsOverview events={thing.events} refetchThing={refetchThing}/></Card>
+			</div>
 		)
 	}
 }

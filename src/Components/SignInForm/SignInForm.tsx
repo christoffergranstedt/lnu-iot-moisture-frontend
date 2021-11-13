@@ -17,16 +17,21 @@ export type UserInput = {
 
 export const SignInForm = ({onFormSubmit, isLoading}: SignInFormProps) => {
 	const { register, handleSubmit } = useForm<UserInput>()
+	const usernameInput = React.useRef<HTMLInputElement>(null)
 
   const onSubmit = (data: UserInput) => {
     onFormSubmit(data)
   }
 
+	React.useEffect(() => {
+		usernameInput?.current?.focus()
+	}, [])
+
 	return (
 		<div className="flex justify-center">
 			<form className="w-124" onSubmit={handleSubmit(onSubmit)}>
 				<div>
-					<Input className="my-4" label='Username' name="username" register={register}/>
+					<Input className="my-4" ref={usernameInput} label='Username' name="username" register={register}/>
 					<Input className="my-4" type='password' name="password" label='Password' register={register}/>
 				</div>	
 				<div className="text-center">
