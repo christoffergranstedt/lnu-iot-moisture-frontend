@@ -15,14 +15,12 @@ module.exports = {
     },
     extend: {
       colors: {
-        primary: '#586999',
-        primaryHover: '#7a89b3',
-        secondary: '#edbb4c',
-        third: '#6E8EE6',
-        thirdHover: '#87a1e9',
-        fourth: 'rgb(55, 55, 75)',
-        fifth: '#998068',
-        fifthHover: '#ab937c'
+        primary: '#49426c',
+        primaryHover: '#685e9d',
+        secondary: '#efc18d',
+        third: '#b79aea',
+        fourth: '#a6c9ef',
+        fifth: '#efaa9b'
       }
     }
   },

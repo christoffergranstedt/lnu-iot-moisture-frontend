@@ -7,10 +7,10 @@ import { FlashMessageType } from '../../Contexts/Reducers/FlashReducer'
 import { Navbar } from '../Navbar/Navbar'
 
 interface HeaderProps {
-
+	className: string
 }
 
-export const Header: React.FC<HeaderProps> = (props) => {
+export const Header: React.FC<HeaderProps> = ({ className }) => {
 	const { user, isSignedIn, signout } = useAuth()
   const [links, setLinks] = React.useState<{ name: string; link: string }[]>([])
 	const { userId } = user
@@ -34,7 +34,7 @@ export const Header: React.FC<HeaderProps> = (props) => {
 	}
 	
 	return (
-		<header>
+		<header className={className}>
 			<Navbar links={links}/>
 			{ user.isSignedIn ? <button onClick={signoutUser}>sign out</button> : null }
 		</header>

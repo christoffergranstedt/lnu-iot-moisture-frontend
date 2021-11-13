@@ -11,7 +11,7 @@ export const Navbar: React.FC<NavbarProps> = ({ links }) => {
 	return (
 		<nav>
 			<ul>
-				{links.map(link => <li key={uuid()}><NavLink to={link.link} className={isActive => isActive ? 'active' : ''}>{link.name}</NavLink></li>)}
+				{links.map(link => <li key={uuid()}><NavLink to={link.link} className={isActive => isActive ? 'active' : 'hover:border-2 hover:border-white'}>{link.name}</NavLink></li>)}
 			</ul>
 		</nav>
 	)

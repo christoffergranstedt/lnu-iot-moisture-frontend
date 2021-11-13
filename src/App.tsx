@@ -3,7 +3,7 @@ import {BrowserRouter as Router, Navigate, Route, Routes } from 'react-router-do
 import { Flash } from './Components/Flash/Flash'
 import { Header } from './Components/Header/Header'
 import { useAuth } from './Hooks/useAuth'
-import { SignInPage } from './Pages/SignInPage/SignInPage'
+import { HomePage } from './Pages/HomePage/HomePage'
 import { ThingPage } from './Pages/ThingPage/ThingPage'
 import { ThingsPage } from './Pages/ThingsPage/ThingsPage'
 
@@ -14,13 +14,13 @@ function App() {
 	if (!isSignedIn()) {
 		routes = (
 			<Routes>
-				<Route path='/' element={<SignInPage/>}></Route>
+				<Route path='/' element={<HomePage/>}></Route>
 				<Route path="*" element={<Navigate replace to="/" />} />
 			</Routes>
 		)
 	} else {
 		routes = (
-			<Routes>
+			<Routes>	
 				<Route path='/things' element={<ThingsPage/>}/>
 				<Route path='/things/:thingId' element={<ThingPage/>}/>
 				<Route path="*" element={<Navigate replace to="/things" />} />
@@ -29,11 +29,13 @@ function App() {
 	}
 
   return (
-    <div className="App">
+    <div className="h-screen text-white">
 			<Router>
-				<Header/>
+				<Header className="bg-gradient-to-r from-primary to-primaryHover h-1/6"/>
 				<Flash/>
-				{routes}
+				<main className="bg-gradient-to-r from-primary to-primaryHover h-5/6">
+					{routes}	
+				</main>
 			</Router>
     </div>
   )

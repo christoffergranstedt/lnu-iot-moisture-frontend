@@ -1,13 +1,14 @@
 import React from 'react'
 
 interface ButtonSubmitProps {
+  className?: string
 	children: React.ReactNode
 	onClick?: React.MouseEventHandler<HTMLButtonElement>
 }
 
-export const ButtonSubmit = ({ children, onClick }: ButtonSubmitProps) => {
+export const ButtonSubmit = ({ className, children, onClick }: ButtonSubmitProps) => {
   return (
-    <button type='submit' onClick={onClick}>
+    <button className={className} type='submit' onClick={onClick}>
       {children}
     </button>
   )

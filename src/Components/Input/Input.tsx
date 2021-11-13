@@ -1,5 +1,6 @@
 interface InputProps {
 	name: string
+  className?: string
 	label: string
 	type?: string
 	errorText?: string
@@ -8,16 +9,16 @@ interface InputProps {
 	register: any
 }
 
-export const Input = ({ name, label, type = 'text', errorText, disabled, error, register }: InputProps) => {
+export const Input = ({ name, className, label, type = 'text', errorText, disabled, error, register }: InputProps) => {
   return (
-    <>
-      <label htmlFor={name}>
+    <div className={`${className}`}>
+      <label className="text-left inline-block w-24" htmlFor={name}>
         {label}
       </label>
-      <input type={type} disabled={disabled} {...register(name)}/>
+      <input className="w-96 h-8 px-3 rounded-md text-black" type={type} disabled={disabled} {...register(name)}/>
       <section>
         {error && <p>{errorText}</p>}
       </section>
-    </>
+    </div>
   )
 }
