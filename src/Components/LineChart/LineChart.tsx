@@ -14,7 +14,7 @@ export const LineChart: React.FC<HeadingProps> = ({ data }) => {
       <div style={{ height: 420, maxWidth: "100%" }}>
         <ResponsiveLine
           data={data}
-          margin={{ top: 20, right: 20, bottom: 20, left: 40 }}
+          margin={{ top: 20, right: 30, bottom: 20, left: 40 }}
           animate={true}
           enableSlices={"x"}
           yScale={{
