@@ -20,7 +20,7 @@ export const EventsOverview: React.FC<EventProps> = ({ events, refetchThing, cla
 			<SubHeading>Events</SubHeading>
 			<div className="flex flex-wrap justify-center">
 				{!hasAuthenticatedTelegram() ? <p>No Telegram account connected, follow instructions above</p> : events.map(event => {
-					return <Event key={uuid()} event={event} refetchThing={refetchThing} className="neumorphism mx-4 my-2"/>
+					return <Event key={uuid()} event={event} refetchThing={refetchThing} className="neumorphism mx-4 my-2 border-2 border-gray-200"/>
 				})}
 			</div>
 		</div>

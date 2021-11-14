@@ -19,7 +19,7 @@ export const ActionsOverview: React.FC<ActionProps> = ({ actions, className }) =
 			<SubHeading>Actions</SubHeading>
 			<div className="flex flex-wrap justify-center">
 				{!hasAuthenticatedTelegram() ? <p>No Telegram account connected, follow instructions above</p> : actions.map(action => {
-					return <Action key={uuid()} action={action} className="neumorphism mx-4 my-2"/>
+					return <Action key={uuid()} action={action} className="neumorphism mx-4 my-2 border-2 border-gray-200"/>
 				})}
 		
 			</div>
