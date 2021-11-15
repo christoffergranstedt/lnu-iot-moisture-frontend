@@ -27,10 +27,10 @@ export const SignInForm = ({onFormSubmit, isLoading}: SignInFormProps) => {
 			<form className="w-124" onSubmit={handleSubmit(onSubmit)}>
 				<div>
 					<Input className="my-4" label='Username' name="username" register={register}/>
-					<Input className="my-4" type='password' name="password" label='Password' register={register}/>
+					<Input className="my-4 focus:ring-2 focus:ring-secondary" type='password' name="password" label='Password' register={register}/>
 				</div>	
 				<div className="text-center">
-					<ButtonSubmit className="'bg-gradient-to-r from-primary to-primaryHover border-2 border-secondary px-6 py-2 rounded-lg mt-8 hover:bg-secondary hover:text-gray-800">{isLoading ? <Loader type="ThreeDots" color="#cccccc" height={10} /> : 'Sign in' }</ButtonSubmit>
+					<ButtonSubmit className="'bg-gradient-to-r from-primary to-primary-hover border-2 border-secondary px-6 py-2 rounded-lg mt-8 hover:bg-secondary hover:text-gray-800">{isLoading ? <Loader type="ThreeDots" color="#cccccc" height={10} /> : 'Sign in' }</ButtonSubmit>
 				</div>					
 			</form>
 		</div>
