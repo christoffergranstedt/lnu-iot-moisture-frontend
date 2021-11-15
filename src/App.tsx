@@ -34,7 +34,7 @@ function App() {
   return (
     <div className="flex flex-col h-screen text-white overflow-y-scroll">
 			<Router>
-				<Header className="bg-primary-hover flex-grow-0 h-16 lg:h-32 flex-shrink-0"/>
+				<Header className="bg-primary-hover flex-grow-0 h-16 lg:h-24 flex-shrink-0"/>
 				<Flash/>
 				<main className="mx-auto flex-grow w-full bg-gradient-to-t from-primary to-primary-hover">
 					{routes}	
