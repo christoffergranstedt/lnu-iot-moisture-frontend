@@ -75,7 +75,7 @@ export const ThingPage: React.FC<ThingPageProps> = (props) => {
 			<div className="container mx-auto text-gray-800">
 				<Heading>{thing.title}</Heading>
 				<Card className="my-6"><ThingInfo className="bg-secondary p-4" thing={thing}/></Card>
-				<Card className="my-6"><PropertiesOverview className="bg-fourth p-4" properties={thing.properties}/></Card>
+				<Card className="my-6"><PropertiesOverview className="bg-fourth p-4 pb-12" properties={thing.properties}/></Card>
 				<Card className="my-6"><ActionsOverview className="bg-fourth p-4" actions={thing.actions}/></Card>
 				<Card className="my-6"><EventsOverview className="bg-fourth p-4" events={thing.events} refetchThing={refetchThing}/></Card>
 			</div>
