@@ -30,7 +30,7 @@ export const SignInForm = ({onFormSubmit, isLoading}: SignInFormProps) => {
 					<Input className="my-4 focus:ring-2 focus:ring-secondary" type='password' name="password" label='Password' register={register}/>
 				</div>	
 				<div className="text-center">
-					<ButtonSubmit className="'bg-gradient-to-r from-primary to-primary-hover border-2 border-secondary px-6 py-2 rounded-lg mt-8 hover:bg-secondary hover:text-gray-800">{isLoading ? <Loader type="ThreeDots" color="#cccccc" height={10} /> : 'Sign in' }</ButtonSubmit>
+					<ButtonSubmit className="'bg-none border-2 border-secondary px-8 py-2 rounded-lg mt-12 transform transition duration-500 hover:scale-110 hover:bg-secondary hover:text-gray-800 text-xl">{isLoading ? <Loader type="ThreeDots" color="#cccccc" height={10} /> : 'Sign in' }</ButtonSubmit>
 				</div>					
 			</form>
 		</div>

@@ -14,7 +14,7 @@ export const HomePage: React.FC<HomePageProps> = (props) => {
 			<div className="w-full">
       <	Plant className="mx-auto m-8 w-full" style={{ width: 300, height: 300}}/>
 			</div>
-			<Link className="bg-third text-gray-800 px-6 py-2 rounded-lg mt-12 transform transition duration-500 hover:scale-110" to="/auth/signin">sign in</Link>
+			<Link className="bg-none border-2 border-secondary px-8 py-2 rounded-lg mt-12 transform transition duration-500 hover:scale-110 hover:bg-secondary hover:text-gray-800 text-xl" to="/auth/signin">sign in</Link>
 		</div>
 	)
 }
