@@ -14,7 +14,7 @@ export const PropertiesOverview: React.FC<PropertiesProps> = ({ properties, clas
 	return (
 		<div className={className}>
 			<SubHeading>Properties</SubHeading>
-			<div>
+			<div className="w-full h-112">
 				{properties.map(property => {
 					return <Property key={uuid()} property={property}/>
 				})}

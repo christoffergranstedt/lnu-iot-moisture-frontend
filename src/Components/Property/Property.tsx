@@ -33,7 +33,7 @@ export const Property: React.FC<PropertyProps> = ({ property, className }) => {
 		return (
 			<>
 			<SubHeading small={true}>{property.title}</SubHeading>
-			<div className={className}>
+			<div className={`${className} w-full h-112`}>
 				<LineChart data={data}/>
 			</div>
 			</>

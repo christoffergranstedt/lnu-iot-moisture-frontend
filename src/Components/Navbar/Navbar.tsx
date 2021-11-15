@@ -22,7 +22,7 @@ export const Navbar: React.FC<NavbarProps> = ({ className, links }) => {
 		<nav className={className}>
 			<ul className="text-right mr-24">
 				{links.map(link => {
-					return <li className="px-12 inline-block" key={uuid()}><NavLink to={link.link} className={isActive => isActive ? 'active' : 'hover:border-2 hover:border-white'}>{link.name}</NavLink></li>
+					return <li className="px-12 inline-block" key={uuid()}><NavLink to={link.link}>{link.name}</NavLink></li>
 				})}
 				{isSignedIn() && <li className="px-12 inline-block"><button onClick={signOutHandler}>sign out</button></li>}
 			</ul>
