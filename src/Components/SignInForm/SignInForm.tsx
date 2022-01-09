@@ -24,7 +24,7 @@ export const SignInForm = ({onFormSubmit, isLoading}: SignInFormProps) => {
 
 	return (
 		<div className="flex justify-center">
-			<form className="w-124" onSubmit={handleSubmit(onSubmit)}>
+			<form className="w-96 sm:w-124" onSubmit={handleSubmit(onSubmit)}>
 				<div>
 					<Input className="my-4" label='Username' name="username" register={register}/>
 					<Input className="my-4 focus:ring-2 focus:ring-secondary" type='password' name="password" label='Password' register={register}/>
