@@ -22,9 +22,9 @@ export const Navbar: React.FC<NavbarProps> = ({ className, links }) => {
 		<nav className={className}>
 			<ul className="text-right mr-0 sm:mr-4 xl:mr-24 2xl:text-xl">
 				{links.map(link => {
-					return <li className="px-8 sm:px-12 inline-block" key={uuid()}><NavLink to={link.link}>{link.name}</NavLink></li>
+					return <li className="px-4 sm:px-12 inline-block" key={uuid()}><NavLink to={link.link}>{link.name}</NavLink></li>
 				})}
-				{isSignedIn() && <li className="px-12 inline-block"><button onClick={signOutHandler}>sign out</button></li>}
+				{isSignedIn() && <li className="px-4 sm:px-12 inline-block"><button onClick={signOutHandler}>sign out</button></li>}
 			</ul>
 		</nav>
 	)

@@ -72,7 +72,7 @@ export const ThingPage: React.FC<ThingPageProps> = (props) => {
 		)
 	} else {
 		return (
-			<div className="container mx-auto text-gray-800">
+			<div className="container mx-auto text-gray-800 px-4 sm:px-0">
 				<Heading>{thing.title}</Heading>
 				<Card className="my-6"><ThingInfo className="bg-secondary p-4" thing={thing}/></Card>
 				<Card className="my-6"><PropertiesOverview className="bg-fourth p-4 pb-12" properties={thing.properties}/></Card>
