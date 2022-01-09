@@ -20,7 +20,7 @@ export const Navbar: React.FC<NavbarProps> = ({ className, links }) => {
 
 	return (
 		<nav className={className}>
-			<ul className="text-right mr-0 sm:mr-4 xl:mr-24">
+			<ul className="text-right mr-0 sm:mr-4 xl:mr-24 2xl:text-xl">
 				{links.map(link => {
 					return <li className="px-12 inline-block" key={uuid()}><NavLink to={link.link}>{link.name}</NavLink></li>
 				})}
